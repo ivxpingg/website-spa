@@ -4,7 +4,7 @@ export default [
         name: 'home',
         alias: '/',
         meta: {
-            title: '配置中心'
+            title: '厦门怡奇信息科技有限公司'
         },
         component: () => import('@/components/HelloWorld.vue')
     }
