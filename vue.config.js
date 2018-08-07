@@ -1,3 +1,8 @@
+const path = require('path');
+
+const resolve = dir => {
+    return path.join(__dirname, dir)
+}
 
 module.exports = {
     // 项目部署的基础路径
@@ -7,10 +12,10 @@ module.exports = {
     // 指定子路径。比如，如果你的应用部署在
     // https://www.foobar.com/my-app/
     // 那么将这个值改为 `/my-app/`
-    baseUrl: '/config/',
+    baseUrl: '/web/',
 
     // 将构建好的文件输出到哪里
-    outputDir: 'sea_config',
+    outputDir: 'dist',
 
     // 是否在保存的时候使用 `eslint-loader` 进行检查。
     // 有效的值：`ture` | `false` | `"error"`
@@ -23,7 +28,10 @@ module.exports = {
 
     // 调整内部的 webpack 配置。
     // 查阅 https://github.com/vuejs/vue-doc-zh-cn/vue-cli/webpack.md
-    chainWebpack: () => {},
+    chainWebpack: (config) => {
+        config.resolve.alias
+            .set('@', resolve('src'))
+    },
     // configureWebpack: () => {},
     configureWebpack: config => {
         // config.entry.app = ['babel-polyfill', './src/main.js'];
